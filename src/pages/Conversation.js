@@ -6,6 +6,7 @@ import styles from '../assets/Conversation.module.css'
 import {Button, Form, Input} from "antd";
 import ConversationsMessages from "./ConversationsMessages";
 import PropTypes from "prop-types";
+import { CloudDownloadOutlined } from '@ant-design/icons';
 
 class Conversation extends Component {
   constructor(props) {
@@ -104,7 +105,7 @@ class Conversation extends Component {
 
                 {isDragActive &&
                 <div className={styles.drop}>
-                  <Icon type={"cloud-upload"}
+                  <CloudDownloadOutlined
                         style={{fontSize: "5em", color: "#fefefe"}}/>
                   <h3 style={{color: "#fefefe"}}>Release to Upload</h3>
                 </div>
