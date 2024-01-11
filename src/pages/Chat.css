@@ -1,0 +1,25 @@
+/* Chat.css */
+#chat {
+    text-align: center;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  h1 {
+    margin-bottom: 10px;
+  }
+  
+  p {
+    margin-top: 5px;
+  }
+  
+  input {
+    padding: 8px;
+    margin-right: 5px;
+    width: 200px;
+  }
+  
+  button {
+    padding: 8px 15px;
+    cursor: pointer;
+  }
+  

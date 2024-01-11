@@ -1,0 +1,55 @@
+/* Conversation.css */
+.conversation-container {
+    max-width: 400px;
+    height: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    border: 3px solid #f1f1f1;
+    overflow: scroll;
+  }
+  
+  .bubble-container {
+    text-align: left;
+  }
+  
+  .bubble {
+    border: 2px solid #f1f1f1;
+    background-color: #fdfbfa;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+    width: 230px;
+    float: right;
+  }
+  
+  .myMessage .bubble {
+    background-color: #abf1ea;
+    border: 2px solid #87E0D7;
+    float: left;
+  }
+  
+  .name {
+    padding-right: 8px;
+    font-size: 11px;
+  }
+  
+  .input-container {
+    margin-top: 10px;
+  }
+  
+  input {
+    padding: 8px;
+    margin-right: 5px;
+    width: 300px;
+  }
+  
+  button {
+    background-color: #21cfbc;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  

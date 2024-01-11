@@ -8,7 +8,7 @@ import ConversationsMessages from "./ConversationsMessages";
 import PropTypes from "prop-types";
 import { CloudDownloadOutlined } from '@ant-design/icons';
 
-class Conversation extends Component {
+class Conversations extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -157,4 +157,4 @@ Conversation.propTypes = {
   myIdentity: PropTypes.string.isRequired
 };
 
-export default Conversation;
+export default Conversations;
