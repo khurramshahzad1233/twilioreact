@@ -4,7 +4,7 @@ import { Client as ConversationsClient } from "@twilio/conversations";
 
 const Chat = () => {
   const [statusString, setStatusString] = useState('');
-  const [activeConversation, setActiveConversation] = useState(null);
+  const [activeConversation, setActiveConversation] = useState();
   const [name, setName] = useState('');
   const [nameRegistered, setNameRegistered] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
@@ -73,10 +73,8 @@ const Chat = () => {
 
       
       await newConversation.sendMessage("hellow worldm, my name is khurram shahzad");
-      await newConversation.sendMessage("hellow worldm, my name is khurram ad");
-      await newConversation.sendMessage("hellow worldm, my name is khurram shahzad");
+      
       setActiveConversation(newConversation)
-      console.log(activeConversation)
 
       
 
@@ -137,10 +135,25 @@ console.log(messages)
 
 console.log(activeConversation)
   const sendmessage=async()=>{
-  const sendmessagedetail=await activeConversation.sendMessage("hellow world");
-  console.log(sendmessagedetail)
+    try {
+      const sendMessageDetail = await activeConversation.sendMessage("Hello world");
+      console.log(sendMessageDetail);
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
 
   
+  }
+
+  const getallmessages=async()=>{
+    let messagesPaginator = await activeConversation.getMessages(30, 0, "backwards");
+
+// get messages
+console.log(messagesPaginator)
+const messages = messagesPaginator.items;
+console.log(messages)
+
+
   }
 
   return (
@@ -178,6 +191,9 @@ console.log(activeConversation)
         />
         <button onClick={sendmessage}>send</button>
       </div>
+
+
+      <div onClick={getallmessages}>get all messages</div>
     </div>
 
     
