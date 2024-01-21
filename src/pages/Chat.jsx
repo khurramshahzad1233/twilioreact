@@ -57,6 +57,7 @@ const Chat = () => {
     // Simulating async check for existing client sessions
     // try {
     //   await checkClientSession('User1');
+
     //   await checkClientSession('User2');
     // } catch (error) {
     //   console.error('Waiting for User1 and User2 client sessions');
@@ -69,38 +70,35 @@ const Chat = () => {
       // const newConversation = await conversationclient.createConversation({ uniqueName: 'chat' });
       const newConversation = await conversationclient.createConversation();
       await newConversation.join();
-      await newConversation.add("khalid");
+      await newConversation.add("rashid");
 
       
-      await newConversation.sendMessage("hellow worldm, my name is khurram shahzad");
+      await newConversation.sendMessage("this is the first message that i am going to send to this app");
       
       setActiveConversation(newConversation)
+      console.log(newConversation)
 
       
 
       let participantsall=await newConversation.getParticipants();
+      //conversation list
+      // const conversationPaginator=await conversationclient.getSubscribedConversations();;
+      // const conversationslist=conversationPaginator.items;
+      // console.log(conversationslist)
 
-      const conversationPaginator=await conversationclient.getSubscribedConversations();;
-
-      // console.log(conversationPaginator)
-      const conversationslist=conversationPaginator.items;
-      console.log(conversationslist)
-
-      let messagesPaginator = await newConversation.getMessages(30, 0, "backwards");
-
-// get messages
-console.log(messagesPaginator)
-const messages = messagesPaginator.items;
-console.log(messages)
+      
+      // get messages
+      let messagesPaginator = await newConversation.getMessages(30, 0, "forward");
+      console.log(messagesPaginator)
+      const messages = messagesPaginator.items;
+      console.log(messages)
 
 
-      newConversation.on("participantJoined",(Participant)=>{
-        console.log("user1 has joined the event")
-      })
+      // newConversation.on("participantJoined",(Participant)=>{
+      //   console.log("user1 has joined the event")
+      // })
     
-      // const message=joinedConversation.sendMessage("hellow world");
-      // console.log(message)
-      // setActiveConversation(joinedConversation);
+      
       
     } catch {
       // Simulating conversation join if already exists
@@ -136,7 +134,8 @@ console.log(messages)
 console.log(activeConversation)
   const sendmessage=async()=>{
     try {
-      const sendMessageDetail = await activeConversation.sendMessage("Hello world");
+      // const sendMessageDetail = await activeConversation.prepareMessage().setBody("hellow rodling boy").build().send();
+      const sendMessageDetail = await activeConversation.sendMessage('hello world');
       console.log(sendMessageDetail);
     } catch (error) {
       console.error("Error sending message:", error);

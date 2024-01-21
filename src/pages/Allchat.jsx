@@ -69,24 +69,20 @@ const Allchat = () => {
 
       const conversationPaginator=await conversationclient.getSubscribedConversations();;
 
-      // console.log(conversationPaginator)
+      console.log(conversationPaginator)
       const conversationslist=conversationPaginator.items;
       console.log(conversationslist);
 
-      const selectedconversation=await conversationclient.getConversationBySid("CH4ff254bddaf246cab23faa9f5465c748")
-
-      let messagesPaginator = await selectedconversation.getMessages(30, 0, "backwards");
 
 
-
-    const messages = messagesPaginator.items;
-    console.log(messages)
+      const selectedconversation=await conversationclient.getConversationBySid("CH1fbe045999574966aa7817816693852d")
+      let messagesPaginator = await selectedconversation.getMessages(15,0,"forward");
+      const messages = messagesPaginator.items;
+      console.log(messages)
 
 
       
-      // const message=joinedConversation.sendMessage("hellow world");
-      // console.log(message)
-      // setActiveConversation(joinedConversation);
+      
       
     } catch {
       // Simulating conversation join if already exists
@@ -105,6 +101,7 @@ const Allchat = () => {
 //     }
 //   };
 
+console.log(conversationclient)
   const createConversationsClient = async (token) => {
     window.conversationsClient=ConversationsClient;
     const client=new ConversationsClient(token);
