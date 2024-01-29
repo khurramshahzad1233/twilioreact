@@ -38,8 +38,17 @@ const Allchat = () => {
           break;
       }
     });
+    conversationsClient.on("conversationJoined",(conversation)=>{
+      console.log(conversation)
+    });
+
+    conversationsClient.on("messageAdded",(message)=>{
+      console.log(message)
+    })
+    
   };
 
+  
   const getToken = async (identity) => {
     // Simulating async fetch for token
     const response = await fetch(`http://localhost:5000/api/twilight/token/${identity}`);

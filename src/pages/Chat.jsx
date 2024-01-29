@@ -39,6 +39,13 @@ const Chat = () => {
           break;
       }
     });
+    conversationsClient.on("conversationJoined",(conversation)=>{
+      console.log(conversation)
+    });
+    conversationsClient.on("messageAdded",(message)=>{
+      console.log(message)
+    })
+    
   };
 
   const getToken = async (identity) => {
